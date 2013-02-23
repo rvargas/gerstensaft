@@ -7,8 +7,8 @@ class HomeController {
 	def utilsService
 	
     def index() {
-		def usersNotGone = User.findAllNotGone()
-		def usersGone = User.findAllGone([sort:'lastTime',order:'asc'])
+		def usersNotGone = User.findAllNotGone([sort:'username',order:'asc'])
+		def usersGone = User.findAllGone([sort:'lastTime',order:'desc'])
 		
 		[usersNotGone:usersNotGone,usersGone:usersGone]
 	}
