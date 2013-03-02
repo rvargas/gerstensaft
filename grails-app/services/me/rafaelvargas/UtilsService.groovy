@@ -11,12 +11,15 @@ class UtilsService {
 		if(userNotGoneCount > 1){
 			userSelected = usersNotGone[calculate(userNotGoneCount)]
 			markUser(userSelected)
+			
 		}
 		else{
 			userSelected = usersNotGone.first()
 			markUser(userSelected)
 			cleanUsers()
 		}
+		
+		sendMail(userSelected)
 		
 		return userSelected.username
     }
@@ -52,4 +55,22 @@ class UtilsService {
 	protected void auditActivity(String activity){
 		def newAuditLog = new AuditLog(activity:activity).save(flush:true)
 	}
+	
+	protected void sendMail(User user){
+		
+		def allUsers = User.list()
+		def usersMail = []
+		
+		allUsers.each {
+			usersMail.add(it.username + "@manoderecha.mx")
+		}
+		
+		sendMail {
+			to "mr.gerstensaft@gmail.com"
+			bcc usersMail
+			subject "Le toca a ${user.username}"
+			body "Aprovechen."
+		}
+	}
+	
 }
