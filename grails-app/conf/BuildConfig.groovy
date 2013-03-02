@@ -61,5 +61,6 @@ grails.project.dependency.resolution = {
 		compile ":recaptcha-spring-security:0.1"
 		compile ":cloud-bees:0.6.2"
         compile ':cache:1.0.1'
+		compile ":mail:1.0.1"
     }
 }
