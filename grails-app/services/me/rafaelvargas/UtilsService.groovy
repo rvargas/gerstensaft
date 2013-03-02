@@ -8,14 +8,15 @@ class UtilsService {
 		
 		def userSelected
 		
-		if(userNotGoneCount > 1)	userSelected = usersNotGone[calculate(userNotGoneCount)]
-		
-		else{
-			cleanUsers()
-			userSelected = usersNotGone.first()
+		if(userNotGoneCount > 1){
+			userSelected = usersNotGone[calculate(userNotGoneCount)]
+			markUser(userSelected)
 		}
-		
-		markUser(userSelected)
+		else{
+			userSelected = usersNotGone.first()
+			markUser(userSelected)
+			cleanUsers()
+		}
 		
 		return userSelected.username
     }
