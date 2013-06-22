@@ -1,4 +1,4 @@
 gerstensaft
 ===========
 
-El sistema que revolucionara la convivencia en la oficina.
+El sistema que revolucionará la convivencia en la oficina.
